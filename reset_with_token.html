@@ -1,0 +1,25 @@
+{% extends "weddskeleton.html" %}
+{% block title %}Reset Password: {% endblock title %}
+{% block body %}
+
+
+<div class = "header" style = "text-align = center;" >
+    <h1>{{ _("Reset Password") }}</h1>
+    <br>
+    {% from "_formhelpers.html" import render_field %}
+        <form action="{{ url_for('reset_with_token', token=token) }}" method="POST">
+            <dl>
+                <h4 class="header" display="block" style = "text-align:center">{{ _("Password") }}</h4>
+                {{form.password}}
+                <h4 class="header" display="block" style = "text-align:center">{{ _("Repeat Password") }}</h4>
+                {{form.confirm}}
+            </dl>
+            <p><input class = "myButton" type=submit value=Submit></p>
+        </form>
+    {% if error %}
+        <p class="error"><strong>Error:</strong>{{error}}</p>
+    {% endif %}
+</div>
+
+    
+{% endblock %}

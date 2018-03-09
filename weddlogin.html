@@ -1,0 +1,21 @@
+{% extends "weddskeleton_loginreg.html" %}
+{% block title %}Login: {% endblock title %}
+{% block body %}
+
+<div class="header" style="text-align:center">
+    <h1>{{ _("Login") }}</h1>
+    <br>
+    <form action="" class="form-inline" method="post" >
+    <input type="text" class="form-control" placeholder="Username or Email" name="username" value="{{request.form.username}}">
+    <input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password}}">
+    <input class="myButtonsmall" type="submit" value="Login">
+    </form>
+    <br>
+    {% if error %}
+        <br>
+        <p class="error"><h4><strong>{{ _("Error:") }} </strong>{{error}}</h4> </p>
+        <br>
+    {% endif %}
+</div>
+
+{% endblock %}

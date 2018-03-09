@@ -1,0 +1,53 @@
+{% extends "weddskeleton.html" %}
+{% block title %}Questions: {% endblock title %}
+{% block body %}
+
+
+<head>
+    <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <style>
+        input[type = text id=replycomment name= replycomment placeholder=Reply] {
+        width: 50px;
+        -webkit-transition: width .35s ease-in-out;
+        transition: width .35s ease-in-out;
+        }
+        input[type=text]:focus {
+        width: 500px;
+        height: 40px;
+        }
+    </style>
+</head>
+
+<div class = message>
+    <h1>{{ _("Questions and Discussions") }}</h1>
+    <h2>{{ _("Please introduce yourselves and post to the group any questions, ideas, carpool offers/needs, etc.") }}</h2>
+    <br>
+    <form action="/convo" method="post">
+        <textarea name = "comment" id = "comment" placeholder="i.e. 'Will eclipse glasses be provided?' (answer: yes)"></textarea><br>
+        <br>
+        <p><input class=myButton type=submit value=Post></p>
+    </form>
+    <br>
+    <div style="text-align: left">
+        {% for item in comments_replies %}
+            
+            <h3 class = convoname><u><b>{{item[0][2]}}</u></b>:</h3> 
+            <h3>{{item[0][4]}}</h3>
+            {% if item|length > 1 %}
+                {% for num in range(item|length) %}
+                    {% if num+1 <= item|length-1  %}
+                        <h4 class = replydivname ><u><b>{{item[num+1][0][3]}}</u>:</b></h4>
+                        <h4 class = replydiv>{{item[num+1][0][5]}}</h4>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <form class = replydiv action='/_postreply' method = post>
+                <input type=text id=replycomment name= replycomment>
+                <button type=submit id=submit name=submit class=myButtonsmall value={{item[0]}}>Reply</button>
+            </form>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,157 @@
+<!-- This text was prepared for a bilingual set of guests. 
+Therefore there are some brackets surrounding some of the text. 
+That was for translation into German
+"{{ _("Arrive") }}" woud be "Ankommen" on the webpage if the webpage was opened on a German computer
+-->
+{% extends "weddskeleton.html" %}
+{% block title %}Calendar: {% endblock title %}
+{% block body %}
+<br>
+<br>
+
+
+	
+<div class="header" style = "text-align: center;" display = "block">
+        <div class="calendar-container">
+
+                <header>
+                        
+                        <div class="day">19 - 21
+                        </div>
+                        <div class="month">August
+                        </div>
+
+                </header>
+
+                <table class="calendar">
+                        
+                        <thead>
+
+                                <tr>
+
+                                        <td>Mon</td>
+                                        <td>Tue</td>
+                                        <td>Wed</td>
+                                        <td>Thu</td>
+                                        <td>Fri</td>
+                                        <td>Sat</td>
+                                        <td>Sun</td>
+
+                                </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                                <tr>
+                                        <td class="prev-month">31</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                </tr>
+
+                                <tr>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                        <td>11</td>
+                                        <td>12</td>
+                                        <td>13</td>
+                                </tr>
+
+                                <tr>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                        <td>17</td>
+                                        <td>18</td>
+                                        <td class="current-day">19</td>
+                                        <td class="current-day">20</td>
+                                </tr>
+
+                                <tr>
+                                        <td class="current-day">21</td>
+                                        <td>22</td>
+                                        <td>23</td>
+                                        <td>24</td>
+                                        <td>25</td>
+                                        <td>26</td>
+                                        <td>27</td>
+                                </tr>
+
+                                <tr>
+                                        <td>28</td>
+                                        <td>29</td>
+                                        <td>30</td>
+                                        <td>31</td>
+                                        <td class="next-month">1</td>
+                                        <td class="next-month">2</td>
+                                        <td class="next-month">3</td>
+                                </tr>
+
+                        </tbody>
+
+                </table>
+
+                <div class="ring-left">
+                </div>
+                <div class="ring-right">
+                </div>
+
+        </div> <!-- end calendar-container -->
+    
+        <style>
+            div[class=title] {
+            text-align: center;
+            vertical-align: middle;
+            }
+        </style>
+        <div id="pricing-table" class="header2">
+            <div class="plan">
+                <div class=title >
+                    <h3>August 19<span>{{ _("Arrive") }}</span></h3>
+                </div>
+                <div style = "text-align:left">
+                    <ul>
+                        <li> <b>4:00 pm</b> Check-In </li>
+                        <li> <b>6:00 pm</b> Dinner</li>
+                        <li> <b>9:00 pm</b> Bachelor/Bachelorette \"party\"</li>
+                    </ul> 
+                </div>
+            </div>
+            <div class="plan">
+                <div class=title >
+                    <h3>August 20<span>{{ _("Ceremony") }}</span></h3>
+                </div>
+                <div style = "text-align:left">
+                    <ul>{{ _("
+                        <li><b>08:00 </b> Breakfast</li>
+                        <li><b>15:00 </b> Ceremony</li>") }}
+                        <li><b>16:30 </b> Reception</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan">
+                <div class=title >
+                    <h3>August 21<span>{{ _("Eclipse") }}</span></h3>
+                </div>
+                        <a href="https://eclipse.gsfc.nasa.gov/SEgoogle/SEgoogle2001/SE2017Aug21Tgoogle.html" class="signup" href="">Click for more info</a>
+                <div style = "text-align:left"> 
+                    <ul>{{ _("
+                        <li><b>4:00 am?</b> Breakfast and depart!!</li>
+                        <li><b>9:00 am</b> Start of Eclipse</li>
+                        <li><b>10:20 am</b> Total Eclipse</li>
+                        <li><b>11:40 am</b> End of Eclipse</li>") }}
+                    </ul>
+                </div>
+            </div>	
+        </div>
+</div>	
+{% endblock %}
+
+
+

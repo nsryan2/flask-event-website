@@ -1,0 +1,42 @@
+{% extends "weddskeleton.html" %}
+{% block title %}Event Title{% endblock title %}
+
+{% block body %}
+
+
+{% if session.logged_in %}
+    <div class="header" style = "text-align: center;">
+        <h1><b>{{ _('Greetings') }} {{username}}!</b></h1>
+        <h2>{{ _('Welcome to Our: <br/> (Event Title)!') }}</h2>
+    </div>
+        <div class = message >
+            <h3>{{ _("Hello and welcome to our event page! We're so glad you have made it through registration and maybe even remembered your password for loggin back in. Congratulations! </h3>") }}
+            </div>
+            <h2> Stay awesome. </h2>
+            <br>
+        </div>
+{% else %}
+    <div class = header>
+        <h1>{{ _("Welcome to our event page!") }}</h1>
+        <h2>{{ _('Please login or register to continue') }}</h2>
+    </div>
+{% endif %}
+
+    
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

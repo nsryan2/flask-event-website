@@ -1,0 +1,24 @@
+{% extends "weddskeleton.html" %}
+{% block title %}Registry: {% endblock title %}
+{% block body %}
+
+<div class = message style="text-align: center">
+    <h1>{{ _("Registry") }}</h1>
+    <h3>{{ _("If you want to bring a gift and don't know what, here are some things we could really use:") }} </h3>
+    <br>
+    <ul class = whitelist>
+        <li>{{ _("A giraffe with purple spots instead of brown ones") }}</li>
+        <li>{{ _("A piece of the fluffiest kind of cloud") }}</li>
+        <li>{{ _("The following flavors of skittles, cut in half:") }}</li>
+            <ul>
+            <br>
+                <p>strawberry</p>
+                <p>lime</p>
+                <p>peach</p>
+                <p>lemon</p>
+            </ul>
+    <br>
+    </ul>
+</div>
+
+{% endblock %}

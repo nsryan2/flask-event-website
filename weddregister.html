@@ -1,0 +1,39 @@
+{% extends "weddskeleton_loginreg.html" %}
+{% block title %}Register: {% endblock title %}
+{% block body %}
+
+<div class = "header" style = "text-align = center;" >
+    <h1>{{ _("Register") }}</h1>
+    <br>
+    {% from "_formhelpers.html" import render_field %}
+    <form style = "text-align = center;" method = post action="/register/">
+    <dl>
+        <h4 class="header" display="block" style = "text-align:center">{{ _("Username (no spaces)") }}</h4>
+        {{form.username}}
+        <h4 class="header" display="block" style = "text-align:center">{{ _("E-mail") }}</h4>
+        {{form.email}}
+        <h4 class="header" display="block" style = "text-align:center">{{ _("Password") }}</h4>
+        {{form.password}}
+        <h4 class="header" display="block" style = "text-align:center">{{ _("Repeat Password") }}</h4>
+        {{form.confirm}}
+    </dl>
+    <p><input class= "myButton" type=submit value=Submit></p>
+    </form>
+    {% if error %}
+        <p class="error"><strong>{{ _("Error:") }}</strong>{{error}}</p>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

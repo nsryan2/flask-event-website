@@ -1,0 +1,105 @@
+{% extends "weddskeleton.html" %}
+{% block title %}RSVP: {% endblock title %}
+{% block body %}
+
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<div class = message>
+
+<body>
+    <h1>{{ _("RSVP") }}</h1>
+    <h2>{{ _("Let us know if you can come!") }}</h2>
+    <h2>{{ _("To add or change details, please do so in the RSVP form below.") }}</h2>
+    <h4>{{ _("P.S. You don't have to fill everything in at once. Just let us know as you do.") }}</h4>
+    {% if times_submitted > 0 %}
+    <br>
+    <br>
+            <table display = center width="400px" border="0" cellpadding="2px" cellspacing="2px" id = "rsvptable" class = "rsvplist">
+            {% for submission in usrdata_labels %}
+                        <tr cellpadding = 0 cellspacing = 0>
+                            <td class = "whitelg">{{submission[0]}}</td>
+                            <td class = "redlg">{{submission[1]}}</td>
+                        </tr>
+            {% endfor %}
+            </table>
+    {% else %}
+        <h4 class="header" display="block" style = "text-align:center">{{usrdata_labels}}</h4>
+    {% endif %}
+</div>
+<br>
+<br>
+<div class = "header" style="text-align: center;">
+    {% from "_formhelpers.html" import render_field %}
+    <form max-width="400px" style = "text-align: left" method = post action="/rsvp">
+        <dl>
+            <div style = "text-align: left; width:1000px">
+                <h4 style = "text-align: left"><b>{{ _("RSVP") }}</b>
+                {{form.rsvpresponse(style = "text-align: left")}}</h4>
+                <h4 style = "text-align: left"><b>{{ _("Name of your party") }}</b></h4>
+                {{form.party_name(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Contact phone number (with area codes)") }}</b></h4>
+                {{form.phone(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Contact E-mail") }}</b></h4>
+                {{form.email(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Number of people in your group") }}</b></h4>
+                {{form.numppl(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Name(s) (first and last) of people in your group") }}</b></h4>
+                {{form.namesppl(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Number and type of vehicles used by your party") }}</b></h4>
+                {{form.numcars(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Accommodation preferences") }}</b></h4>
+                <h5 style = "text-align: left">{{ _("We have a limited number of beds in the lodge and hotels reserved") }}</h5>
+                <h5 style = "text-align: left">{{ _('Those beds and rooms will be available on a first-"RSVP" first-serve basis') }}</h5>
+                <h4>{{form.accommodation(style = "text-align: left")}}</h4>
+                <h4 style = "text-align: left"><b>{{ _("Day of arrival MM/DD/YY") }}</b></h4>
+                {{form.dayarrival(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Appx time of arrival") }}</b></h4>
+                {{form.timearrival(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Day of departure MM/DD/YY") }}</b></h4>
+                {{form.daydepart(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Appx time of departure") }}</b></h4>
+                {{form.timedepart(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("How will you be traveling?") }}</b></h4>
+                <h5 style = "text-align: left">{{ _("If by plane, which airport? Do you need transport?") }}</h5>
+                {{form.carpool(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Food preferences of individuals in your party") }}</b></h4>
+                <h5 style = "text-align: left">{{ _("(vegetarian, pescetarian, food allergies, etc.)") }}</h5>
+                {{form.foodpref(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("What kind of activities are you most interested in?") }}</b></h4>
+                <h5 style = "text-align: left">(i.e. play games, strenuous or relaxed hiking, biking, kayaking, etc.)") }}</h5>
+                {{form.activities(style = "width:900px")}}
+                <h4 style = "text-align: left"><b>{{ _("Comments, questions, and special requests:") }}</b></h4>
+                {{form.comments(style = "width:900px")}}
+            <br>
+            <br>
+            <input id=all_responses name=all_responses class= "myButton" type=submit value=Submit>
+            </div>
+        </dl>
+    </form>
+    <script type=text/javascript>
+    $(function () {
+        $('input#all_responses').click(function() {
+            $.ajax({
+                url:'/rsvp',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+    
+    </script>
+</div>
+</body>
+
+{% endblock %}
+    
+    
+    
