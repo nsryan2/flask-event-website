@@ -151,7 +151,7 @@ def reset():
                 send_email(user.email, subject, html)
                 flash('A link to reset your password has been emailed to you. Please check your spam folder.')
             else:
-                flash("I'm sorry. Your email has not yet been confirmed. Please contact Aislyn or Thomas via email directly (see bottom of page)")
+                flash("I'm sorry. Your email has not yet been confirmed. Please contact the authors via email directly (see bottom of page)")
         else:
             flash("Invalid Email")
         return redirect(url_for('home'))
