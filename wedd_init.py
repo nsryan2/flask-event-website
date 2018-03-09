@@ -4,7 +4,7 @@ NOT DEBUGGED!
 This was a script I wrote for my husband and my wedding website. This was my FIRST website. Please excuse the mess. I'm workin' on it. 
 
 Basically Flask website that allows users to register, login, renew their passwords (I didn't provide that option in the final version tho), RSVP, check organization details, look at our gallery, have discussion with other guests, and of course logout. 
-
+I have commented out the email recovery as I had problems with it when I put the website onto the raspberry pi
 '''
 
 from flask import Flask
@@ -58,8 +58,6 @@ db._model_changes={}
 db.commit()
 
 mail = Mail(app)
-#RSVPform = model_form(RSVP, Form)
-#RSVP_form = model_form(RSVPForm, Form) 
 
 def generate_confirmation_token(email):
     serializer = URLSafeTimedSerializer(app.secret_key)
